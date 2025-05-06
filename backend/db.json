@@ -1,0 +1,31 @@
+{
+    "pets": [
+        {
+            "id": "1",
+            "nome": "Joaquim",
+            "idade": "5",
+            "especie": "Cachorro",
+            "raca": "PitBull",
+            "sexo": "masculino",
+            "preco": "1.600"
+        },
+        {
+            "id": "2",
+            "nome": "Nina",
+            "idade": "3",
+            "especie": "Cachorro",
+            "raca": "Pincher",
+            "sexo": "feminino",
+            "preco": "1.200"
+        },
+        {
+            "id": "1",
+            "nome": "Frajola",
+            "idade": "4",
+            "especie": "Gato",
+            "raca": "Siamês",
+            "sexo": "masculino",
+            "preco": "1.300"
+        }
+    ]
+}

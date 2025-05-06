@@ -1,0 +1,66 @@
+<form>
+    <label for="input-id">ID</label><br/>
+    <input
+    class="input-simples"
+    id="input-id"
+    name="input-id"
+    placeholder="Digite o id"
+    type="text"
+    [(ngModel)]="pets.id"
+    />
+    <label for="input-nome">Nome</label><br/>
+    <input
+    class="input-simples"
+    id="input-nome"
+    name="input-nome"
+    placeholder="Digite o Nome"
+    type="text"
+    [(ngModel)]="pets.nome"
+    />
+    <label for="input-idade">Idade</label><br/>
+    <input
+    class="input-simples"
+    id="input-idade"
+    name="input-idade"
+    placeholder="Digite o Nome"
+    type="text"
+    [(ngModel)]="pets.nome"
+    />
+    <label for="input-especie">Especie</label><br/>
+    <input
+    class="input-simples"
+    id="input-especie"
+    name="input-especie"
+    placeholder="Digite o Especie"
+    type="text"
+    [(ngModel)]="pets.especie"
+    />
+    <label for="input-raca">Raça</label><br/>
+    <input
+    class="input-simples"
+    id="input-raca"
+    name="input-raca"
+    placeholder="Digite o Raça"
+    type="text"
+    [(ngModel)]="pets.raca"
+    />
+    <label for="input-sexo">Sexo</label><br/>
+    <input
+    class="input-simples"
+    id="input-sexo"
+    name="input-sexo"
+    placeholder="Digite o Sexo"
+    type="text"
+    [(ngModel)]="pets.sexo"
+    />
+    <label for="input-preco">Preço</label><br/>
+    <input
+    class="input-simples"
+    id="input-preco"
+    name="input-preco"
+    placeholder="Digite o Preço"
+    type="text"
+    [(ngModel)]="pets.preco"
+    />
+    <button class="input-submeter" (click)="submeter()">Cadastrar</button>
+    </form>
