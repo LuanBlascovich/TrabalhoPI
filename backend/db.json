@@ -1,31 +1,67 @@
 {
-    "pets": [
-        {
-            "id": "1",
-            "nome": "Joaquim",
-            "idade": "5",
-            "especie": "Cachorro",
-            "raca": "PitBull",
-            "sexo": "masculino",
-            "preco": "1.600"
-        },
-        {
-            "id": "2",
-            "nome": "Nina",
-            "idade": "3",
-            "especie": "Cachorro",
-            "raca": "Pincher",
-            "sexo": "feminino",
-            "preco": "1.200"
-        },
-        {
-            "id": "1",
-            "nome": "Frajola",
-            "idade": "4",
-            "especie": "Gato",
-            "raca": "Siamês",
-            "sexo": "masculino",
-            "preco": "1.300"
-        }
-    ]
+  "pets": [
+    {
+      "id": "2",
+      "nome": "Max",
+      "idade": 3,
+      "especie": "Cachorro",
+      "raca": "Labrador Retriever",
+      "sexo": "Macho",
+      "preco": 1200
+    },
+    {
+      "id": "3",
+      "nome": "Bento",
+      "idade": 1,
+      "especie": "Cachorro",
+      "raca": "Poodle",
+      "sexo": "Macho",
+      "preco": 900
+    },
+    {
+      "id": "4",
+      "nome": "Luna",
+      "idade": 0.5,
+      "especie": "Cachorro",
+      "raca": "Shih Tzu",
+      "sexo": "Femea",
+      "preco": 1000
+    },
+    {
+      "id": "5",
+      "nome": "Mia",
+      "idade": 4,
+      "especie": "Gato",
+      "raca": "Persa",
+      "sexo": "Femea",
+      "preco": 800
+    },
+    {
+      "id": "6",
+      "nome": "Tom",
+      "idade": 4,
+      "especie": "Gato",
+      "raca": "Siamês",
+      "sexo": "Macho",
+      "preco": 750
+    },
+    {
+      "id": "7",
+      "nome": "Thor",
+      "idade": 2,
+      "especie": "Cachorro",
+      "raca": "Pastor Alemão",
+      "sexo": "Macho",
+      "preco": 1300
+    },
+    {
+      "id": "9",
+      "nome": "Nina",
+      "idade": 9,
+      "especie": "Cachorro",
+      "raca": "SRD",
+      "sexo": "Femea",
+      "preco": 2000
+    }
+  ]
 }

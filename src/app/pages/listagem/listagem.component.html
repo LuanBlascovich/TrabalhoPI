@@ -1,33 +1,33 @@
 <div class="content-container">
     <table>
-    <thead>
-    <tr>
-    <th>ID</th>
-    <th>Nome</th>
-    <th>Idade</th>
-    <th>Especie</th>
-    <th>Raça</th>
-    <th>Sexo</th>
-    <th>Preço</th>    
-    </tr>
-    </thead>
-    <tbody>
-    @for (pets of listaPets; track pets){
-    <tr>
-    <td>{{ pets.id }}</td>
-    <td>{{ pets.nome }}</td>
-    <td>{{ pets.idade }}</td>
-    <td>{{ pets.especie }}</td>
-    <td>{{ pets.raca }}</td>
-    <td>{{ pets.sexo }}</td>
-    <td>{{ pets.preco }}</td>
-    <td>
-        <button *ngIf="pets.id" class="btn-editar" [routerLink]="['/editar', pets.id]">Editar</button>
-
-    <button class="btn-excluir" (click)="excluir(pets.id!)">Excluir</button>
-</td>
-</tr>
-}
-</tbody>
-</table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Especie</th>
+                <th>Raça</th>
+                <th>Idade</th>
+                <th>Sexo</th>
+                <th>Preço</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (pets of listaPets; track pets){
+            <tr>
+                <td>{{ pets.id }}</td>
+                <td>{{ pets.nome }}</td>
+                <td>{{ pets.especie }}</td>
+                <td>{{ pets.raca }}</td>
+                <td>{{ pets.idade }}</td>
+                <td>{{ pets.sexo }}</td>
+                <td>{{ pets.preco | currency:'BRL' }}</td>
+                <td>
+                    <button *ngIf="pets.id" class="btn-editar" [routerLink]="['/editar', pets.id]">Editar</button>
+                    <button class="btn-excluir" (click)="excluir(pets.id!)">Excluir</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
 </div>

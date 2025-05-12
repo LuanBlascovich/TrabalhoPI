@@ -9,29 +9,27 @@ import { PetsService } from '../../core/services/pets.service';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './excluir.component.html',
-  styleUrl: './excluir.component.css'
+  styleUrl: './excluir.component.css',
 })
 export class ExcluirComponent {
-  idExcluir: number | null = null;
-mensagemSucesso: string = '';
-erroMensagem: string = '';
-constructor(
-private petsService: PetsService,
-private router: Router
-) { }
-excluirPet(): void {
-this.mensagemSucesso = '';
-this.erroMensagem = '';
-if (this.idExcluir != null) {
-this.petsService.excluir(this.idExcluir).subscribe({
-next: () => {
-this.router.navigate(['/listagem']);
-},
-error: () => {
-this.erroMensagem = `Erro ao excluir o pet.`;
-}
-});
-}
-}
-}
+  idExcluir: string | null = null;
+  erroMensagem: string = '';
 
+  constructor(private petsService: PetsService, private router: Router) {}
+
+  excluirPet(): void {
+    this.erroMensagem = '';
+    if (this.idExcluir != null) {
+      const idString = this.idExcluir.toString();
+
+      this.petsService.excluir(idString).subscribe({
+        next: () => {
+          this.router.navigate(['/listagem']);
+        },
+        error: () => {
+          this.erroMensagem = `Erro ao excluir o pet.`;
+        },
+      });
+    }
+  }
+}

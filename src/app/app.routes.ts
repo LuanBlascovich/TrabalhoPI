@@ -8,6 +8,7 @@ import { ListagemComponent } from './pages/listagem/listagem.component';
 export const routes: Routes = [
   { path: 'listagem', component: ListagemComponent},
   { path: '', component: ConsultarComponent },
+  { path: 'editar', component: EditarComponent},
   { path: 'editar/:id', component: EditarComponent },
   { path: 'cadastrar', component: CadastrarComponent, title: 'Cadastrar' },
   { path: 'consultar', component: ConsultarComponent },

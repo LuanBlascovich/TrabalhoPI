@@ -1,12 +1,59 @@
-label {
-    font-weight: bold;
-    display: block;
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
 .input-simples {
-    width: 200px;
-    padding: 10px 12px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.input-simples:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.input-submeter {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.input-submeter:disabled {
+  background-color: #a5a5a5;
+  cursor: not-allowed;
+}
+
+.input-submeter:hover:not(:disabled) {
+  background-color: #125ea4;
+}
+
+div[style*="color: red"] {
+  font-size: 13px;
+  margin-top: 5px;
 }

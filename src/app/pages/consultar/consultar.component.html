@@ -1,28 +1,22 @@
 <div class="consulta-container">
   <form (ngSubmit)="buscarpets()">
     <label for="input-id">Informe o ID do Pet:</label>
-    <input
-      type="number"
-      id="input-id"
-      name="input-id"
-      [(ngModel)]="idBusca"
-      class="input-id"
-      required
-    />
+    <input type="text" id="input-id" name="input-id" [(ngModel)]="idBusca" class="input-id" required />
     <button type="submit" class="btn-buscar">Buscar</button>
   </form>
+
   <div *ngIf="petsEncontrado" class="pets-dados">
     <h2>Dados do Pet</h2>
     <p><strong>ID:</strong> {{ petsEncontrado.id }}</p>
     <p><strong>Nome:</strong> {{ petsEncontrado.nome }}</p>
     <p><strong>Idade:</strong> {{ petsEncontrado.idade }}</p>
-    <p><strong>Especie:</strong> {{ petsEncontrado.especie }}</p>
+    <p><strong>Espécie:</strong> {{ petsEncontrado.especie }}</p>
     <p><strong>Raça:</strong> {{ petsEncontrado.raca }}</p>
     <p><strong>Sexo:</strong> {{ petsEncontrado.sexo }}</p>
-    <p><strong>Preço:</strong> {{ petsEncontrado.preco }}</p>
+    <p><strong>Preço:</strong> {{ petsEncontrado.preco | currency:'BRL' }}</p>
   </div>
+
   <div *ngIf="erroBusca" class="erro-busca">
     {{ erroBusca }}
   </div>
 </div>
-

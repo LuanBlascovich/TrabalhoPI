@@ -15,16 +15,16 @@ export class ListagemComponent implements OnInit {
   constructor(private service: PetsService, private router: Router) {}
 
   ngOnInit(): void {
-    this.CarregarPets();
+    this.carregarPets();
   }
 
-  CarregarPets(): void {
+  carregarPets(): void {
     this.service.listar().subscribe((pets) => {
       this.listaPets = pets;
     });
   }
 
-  excluir(id: number) {
+  excluir(id: string): void {
     if (id) {
       this.service.excluir(id).subscribe(() => {
         this.listaPets = this.listaPets.filter((pets) => pets.id !== id);
