@@ -1,0 +1,14 @@
+.consulta-container {
+    font-weight: bold;
+}
+.input-id {
+    width: 200px;
+    padding: 4px 12px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 1px solid black ;
+}
+button {
+    border-radius: 4px;
+    cursor: pointer;
+}
