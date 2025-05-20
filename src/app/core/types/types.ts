@@ -6,4 +6,5 @@ export interface Pets {
   raca: string;
   sexo: string;
   preco: number;
+  comentario?: string;
 }

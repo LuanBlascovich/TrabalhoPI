@@ -34,6 +34,8 @@ export class EditarComponent implements OnInit {
       raca: [''],
       sexo: [''],
       preco: [''],
+      comentario: [''],
+      imagem: [''],
     });
 
     this.petsService.buscarPorId(this.idPets.toString()).subscribe((pets) => {
@@ -45,6 +47,7 @@ export class EditarComponent implements OnInit {
           raca: pets.raca,
           sexo: pets.sexo,
           preco: pets.preco,
+          comentario: pets.comentario,
         });
       }
     });

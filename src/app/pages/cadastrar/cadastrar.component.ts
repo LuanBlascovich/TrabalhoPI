@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../core/services/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Pets } from '../../core/types/types';
 import { PetsService } from '../../core/services/pets.service';
@@ -26,8 +27,16 @@ export class CadastrarComponent {
     preco: 0,
   };
 
-  constructor(private service: PetsService, private router: Router) {}
-
+  constructor(
+    private service: PetsService,
+    private auth: AuthService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    if (!this.auth.isLogado()) {
+      this.router.navigate(['/login']);
+    }
+  }
   submeter() {
     this.service.listar().subscribe((petsCadastrados) => {
       const ids = petsCadastrados.map((p) => parseInt(p.id as string));

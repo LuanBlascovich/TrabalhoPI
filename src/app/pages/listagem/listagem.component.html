@@ -1,4 +1,7 @@
 <div class="content-container">
+    <label for="filtro">Pesquisar por:</label>
+    <input type="text" placeholder="nome, raça, espécie ou sexo" [(ngModel)]="filtro"
+       id="filtro" class="input-filtro" />
     <table>
         <thead>
             <tr>
@@ -13,8 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            @for (pets of listaPets; track pets){
-            <tr>
+            <tr *ngFor="let pets of petsFiltrados()">
                 <td>{{ pets.id }}</td>
                 <td>{{ pets.nome }}</td>
                 <td>{{ pets.especie }}</td>
@@ -23,11 +25,11 @@
                 <td>{{ pets.sexo }}</td>
                 <td>{{ pets.preco | currency:'BRL' }}</td>
                 <td>
-                    <button *ngIf="pets.id" class="btn-editar" [routerLink]="['/editar', pets.id]">Editar</button>
+                    <button class="btn-consultar" [routerLink]="['/consultar', pets.id]">Consultar</button>
                     <button class="btn-excluir" (click)="excluir(pets.id!)">Excluir</button>
                 </td>
             </tr>
-            }
+
         </tbody>
     </table>
 </div>

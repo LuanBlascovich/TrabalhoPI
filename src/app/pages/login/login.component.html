@@ -1,0 +1,10 @@
+<!-- login.component.html -->
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="entrar()">
+    <input type="text" [(ngModel)]="administrador" name="adm" placeholder="Administrador" required />
+    <input type="password" [(ngModel)]="senha" name="senha" placeholder="Senha" required />
+    <button type="submit">Entrar</button>
+  </form>
+  <div *ngIf="erro" class="erro">{{ erro }}</div>
+</div>

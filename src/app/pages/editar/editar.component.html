@@ -35,5 +35,10 @@
     <input id="preco" formControlName="preco" type="number" step="0.01" />
   </div>
 
+  <div>
+    <label for="comentario">Comentário:</label>
+    <textarea id="comentario" formControlName="comentario"></textarea>
+  </div>
+
   <button type="submit" [disabled]="form.invalid">Salvar</button>
 </form>
