@@ -1,3 +1,4 @@
+<div class="body">
 <form (ngSubmit)="submeter()" #form="ngForm">
     <label for="input-nome">Nome:</label>
     <input class="input-simples" id="input-nome" name="input-nome" placeholder="Digite o Nome" type="text"
@@ -36,3 +37,4 @@
 </textarea><br />
     <button type="submit" class="input-submeter" [disabled]="form.invalid">Cadastrar</button>
 </form>
+</div>

@@ -4,6 +4,8 @@
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: url('/assets/ImagemFundo.png');
+    min-height: 100vh;
 }
 table {
     width: 100%;
@@ -36,4 +38,14 @@ button{
 }
 button:hover {
   background-color: #0056b3;
+}
+tr.conteudo{
+    background-color: #f1f1f1;
+}
+.filtro{
+    background-color: white;
+    border: 1px black;
+    background-color: #2c3e50;
+    color: white;
+    
 }

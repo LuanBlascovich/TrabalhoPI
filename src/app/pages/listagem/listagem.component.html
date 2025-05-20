@@ -1,5 +1,5 @@
 <div class="content-container">
-    <label for="filtro">Pesquisar por:</label>
+    <label for="filtro" class="filtro">Pesquisar por:</label>
     <input type="text" placeholder="nome, raça, espécie ou sexo" [(ngModel)]="filtro"
        id="filtro" class="input-filtro" />
     <table>
@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let pets of petsFiltrados()">
+            <tr *ngFor="let pets of petsFiltrados()" class="conteudo">
                 <td>{{ pets.id }}</td>
                 <td>{{ pets.nome }}</td>
                 <td>{{ pets.especie }}</td>

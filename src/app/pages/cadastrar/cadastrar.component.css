@@ -38,3 +38,8 @@ input:focus {
   border-color: #007bff;
   outline: none;
 }
+
+.body {
+  background-image: url('/assets/ImagemFundo.png');
+}
+
