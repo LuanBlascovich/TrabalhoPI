@@ -3,10 +3,11 @@ import { PetsService } from '../../core/services/pets.service';
 import { Pets } from '../../core/types/types';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-listagem',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './listagem.component.html',
   styleUrl: './listagem.component.css',
 })
@@ -18,6 +19,28 @@ export class ListagemComponent implements OnInit {
     this.carregarPets();
   }
 
+  filtro: string = '';
+
+  petsFiltrados(): Pets[] {
+    if (!this.filtro.trim()) {
+      return this.listaPets;
+    }
+
+    const termo = this.filtro.toLowerCase();
+
+    return this.listaPets.filter((pet) => {
+      const idStr = (pet.id ?? '').toString().toLowerCase();
+
+      return (
+        idStr.includes(termo) ||
+        pet.nome.toLowerCase().includes(termo) ||
+        pet.raca.toLowerCase().includes(termo) ||
+        pet.sexo.toLowerCase().includes(termo) ||
+        pet.especie.toLowerCase().includes(termo)
+      );
+    });
+  }
+
   carregarPets(): void {
     this.service.listar().subscribe((pets) => {
       this.listaPets = pets;
@@ -25,7 +48,7 @@ export class ListagemComponent implements OnInit {
   }
 
   excluir(id: string): void {
-    if (id) {
+    if (id && confirm('Tem certeza que deseja excluir esse pet?')) {
       this.service.excluir(id).subscribe(() => {
         this.listaPets = this.listaPets.filter((pets) => pets.id !== id);
       });

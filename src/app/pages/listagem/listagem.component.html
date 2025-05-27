@@ -1,33 +1,37 @@
-<div class="content-container">
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Especie</th>
-                <th>Raça</th>
-                <th>Idade</th>
-                <th>Sexo</th>
-                <th>Preço</th>
-                <th>Opções</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (pets of listaPets; track pets){
-            <tr>
-                <td>{{ pets.id }}</td>
-                <td>{{ pets.nome }}</td>
-                <td>{{ pets.especie }}</td>
-                <td>{{ pets.raca }}</td>
-                <td>{{ pets.idade }}</td>
-                <td>{{ pets.sexo }}</td>
-                <td>{{ pets.preco | currency:'BRL' }}</td>
-                <td>
-                    <button *ngIf="pets.id" class="btn-editar" [routerLink]="['/editar', pets.id]">Editar</button>
-                    <button class="btn-excluir" (click)="excluir(pets.id!)">Excluir</button>
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
+<div class="imagem">
+    <div class="content-container">
+        <label for="filtro" class="filtro">Pesquisar por:</label>
+        <input type="text" placeholder="ID, nome, raça, espécie ou sexo" [(ngModel)]="filtro" id="filtro"
+            class="input-filtro" />
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Especie</th>
+                    <th>Raça</th>
+                    <th>Idade</th>
+                    <th>Sexo</th>
+                    <th>Preço</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pets of petsFiltrados()" class="conteudo">
+                    <td>{{ pets.id }}</td>
+                    <td>{{ pets.nome }}</td>
+                    <td>{{ pets.especie }}</td>
+                    <td>{{ pets.raca }}</td>
+                    <td>{{ pets.idade }}</td>
+                    <td>{{ pets.sexo }}</td>
+                    <td>{{ pets.preco | currency:'BRL':'symbol'}}</td>
+                    <td>
+                        <button class="btn-consultar" [routerLink]="['/consultar', pets.id]">Consultar</button>
+                        <button class="btn-excluir" (click)="excluir(pets.id!)">Excluir</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -1,0 +1,18 @@
+<div class="imagem-login">
+  <div class="login-container">
+    <h2 class="login-title">Login</h2>
+    <form (ngSubmit)="entrar()">
+      <input type="text" [(ngModel)]="administrador" name="adm" placeholder="Administrador" required />
+      <div class="password-container">
+        <input [type]="senhaVisivel ? 'text' : 'password'" [(ngModel)]="senha" name="senha" placeholder="Senha"
+          required />
+        <i (click)="toggleSenhaVisibilidade()" [class.open]="senhaVisivel" [class.closed]="!senhaVisivel"
+          class="eye-icon">
+          <img [src]="senhaVisivel ? '/assets/eye-open.png' : '/assets/eye-closed.png'" alt="Eye Icon" />
+        </i>
+      </div>
+      <button type="submit">Entrar</button>
+    </form>
+    <div *ngIf="erro" class="erro">{{ erro }}</div>
+  </div>
+</div>
