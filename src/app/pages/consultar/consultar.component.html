@@ -1,12 +1,16 @@
-<div *ngIf="petsEncontrado" class="pets-dados">
-  <h2>Dados do Pet</h2>
-  <p><strong>ID:</strong> {{ petsEncontrado.id }}</p>
-  <p><strong>Nome:</strong> {{ petsEncontrado.nome }}</p>
-  <p><strong>Idade:</strong> {{ petsEncontrado.idade }}</p>
-  <p><strong>Espécie:</strong> {{ petsEncontrado.especie }}</p>
-  <p><strong>Raça:</strong> {{ petsEncontrado.raca }}</p>
-  <p><strong>Sexo:</strong> {{ petsEncontrado.sexo }}</p>
-  <p><strong>Preço:</strong> {{ petsEncontrado.preco | currency:'BRL' }}</p>
+<div class="body">
+  <div *ngIf="petsEncontrado" class="pets-dados">
+    <h2>Dados do Pet</h2>
+    <p><strong>ID:</strong> {{ petsEncontrado.id }}</p>
+    <p><strong>Nome:</strong> {{ petsEncontrado.nome }}</p>
+    <p><strong>Idade:</strong> {{ petsEncontrado.idade }}</p>
+    <p><strong>Espécie:</strong> {{ petsEncontrado.especie }}</p>
+    <p><strong>Raça:</strong> {{ petsEncontrado.raca }}</p>
+    <p><strong>Sexo:</strong> {{ petsEncontrado.sexo }}</p>
+    <p><strong>Comentários:</strong> {{ petsEncontrado.comentario }}</p>
+    <p><strong>Preço:</strong> {{ petsEncontrado.preco | currency:'BRL' }}</p>
 
-  <button class="btn-editar" (click)="editarPet()">Editar Pet</button> <!-- ✅ Botão novo -->
+    <button class="btn-editar" (click)="editarPet()">Editar Pet</button>
+    <button class="btn-excluir" (click)="excluirPet()">Excluir Pet</button>
+  </div>
 </div>

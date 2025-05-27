@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { PetsService } from '../../core/services/pets.service';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PetsService } from '../../core/services/pets.service';
 import { Pets } from '../../core/types/types';
 
 @Component({
@@ -25,15 +30,17 @@ export class EditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.idPets = String(this.route.snapshot.paramMap.get('id')!);
-    console.log(this.idPets);
 
     this.form = this.fb.group({
-      nome: [''],
-      idade: [''],
-      especie: [''],
-      raca: [''],
-      sexo: [''],
-      preco: [''],
+      nome: ['', Validators.required],
+      idade: ['', Validators.required],
+      especie: ['', Validators.required],
+      raca: ['', Validators.required],
+      sexo: ['', Validators.required],
+      preco: [
+        '',
+        [Validators.required, Validators.min(0.01), Validators.max(10000)],
+      ],
       comentario: [''],
       imagem: [''],
     });
@@ -53,16 +60,43 @@ export class EditarComponent implements OnInit {
     });
   }
 
+  capitalizarPrimeiraLetra(texto: string): string {
+    if (!texto) return '';
+    return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
+  }
+
+  bloquearDecimal(event: KeyboardEvent): void {
+    const char = event.key;
+    if (char === '.' || char === ',') {
+      event.preventDefault();
+    }
+  }
+
+  campoInvalido(campo: string): boolean {
+    const controle = this.form.get(campo);
+    return !!(
+      controle &&
+      controle.invalid &&
+      (controle.dirty || controle.touched)
+    );
+  }
+
   onSubmit() {
     if (this.form.valid) {
+      const formValue = this.form.value;
+
       const petsAtualizado: Pets = {
         id: this.idPets,
-        ...this.form.value,
+        ...formValue,
+        nome: this.capitalizarPrimeiraLetra(formValue.nome.trim()),
+        raca: this.capitalizarPrimeiraLetra(formValue.raca.trim()),
       };
 
       this.petsService.editar(petsAtualizado).subscribe(() => {
         this.router.navigate(['listagem']);
       });
+    } else {
+      this.form.markAllAsTouched();
     }
   }
 }

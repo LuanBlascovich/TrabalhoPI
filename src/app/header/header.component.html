@@ -1,9 +1,10 @@
 <nav class="menu">
-    <ul>
-        <li *ngIf="isLogado()"><a routerLink="/home" routerLinkActive="active">Home</a></li>
-        <li *ngIf="isLogado()"><a routerLink="/listagem" routerLinkActive="active">Pets</a></li>
-        <li *ngIf="isLogado()"><a routerLink="/cadastrar" routerLinkActive="active">Cadastrar</a></li>
-        <li *ngIf="isLogado()"><a href="#" (click)="logout()">Sair</a></li>
-        <li *ngIf="!isLogado()"><a routerLink="/login" routerLinkActive="active">Fazer Login</a></li>
-    </ul>
+  <ul>
+    <li *ngIf="isLogado()"><a routerLink="/listagem" routerLinkActive="active">Pets</a></li>
+    <li *ngIf="isLogado()"><a routerLink="/cadastrar" routerLinkActive="active">Cadastrar</a></li>
+    <li *ngIf="isLogado()" class="logout"><a href="#" (click)="logout()">Sair</a></li>
+    <li *ngIf="!isLogado() && !isNaPaginaDeLogin()">
+      <a routerLink="/login" routerLinkActive="active">Fazer Login</a>
+    </li>
+  </ul>
 </nav>

@@ -1,40 +1,78 @@
 <div class="body">
-<form (ngSubmit)="submeter()" #form="ngForm">
-    <label for="input-nome">Nome:</label>
-    <input class="input-simples" id="input-nome" name="input-nome" placeholder="Digite o Nome" type="text"
-        [(ngModel)]="pets.nome" #nomeModel="ngModel" required /><br />
-    <div *ngIf="nomeModel.invalid && nomeModel.touched" style="color: red;">*Obrigatório</div>
-    <label for="input-idade">Idade:</label>
-    <input class="input-simples" id="input-idade" name="input-idade" placeholder="Digite a Idade" type="number"
-        [(ngModel)]="pets.idade" #idadeModel="ngModel" required min="0" max="12"/><br />
-    <div *ngIf="idadeModel.invalid && idadeModel.touched" style="color: red;">*Obrigatório e não pode ser maior que 12</div>
-    <label for="input-especie">Espécie:</label>
-    <select class="input-simples" id="input-especie" name="input-especie" [(ngModel)]="pets.especie" required>
-        <option value="">Selecione</option>
-        <option value="Cachorro">Cachorro</option>
-        <option value="Gato">Gato</option>
-    </select><br />
-    <div *ngIf="form.submitted && !pets.especie">*Obrigatório</div>
-    <label for="input-raca">Raça:</label>
-    <input class="input-simples" id="input-raca" name="input-raca" placeholder="Digite a Raça" type="text"
-        [(ngModel)]="pets.raca" #racaModel="ngModel" required /><br />
-    <div *ngIf="racaModel.invalid && racaModel.touched" style="color: red;">*Obrigatório</div>
-    <label for="input-sexo">Sexo:</label>
-    <select class="input-simples" id="input-sexo" name="input-sexo" [(ngModel)]="pets.sexo" required>
-        <option value="">Selecione</option>
-        <option value="Macho">Macho</option>
-        <option value="Femea">Femea</option>
-    </select><br />
-    <div *ngIf="form.submitted && !pets.sexo">*Obrigatório</div>
-    <label for="input-preco">Preço:</label>
-    <input class="input-simples" id="input-preco" name="input-preco" placeholder="Digite o Preço" type="number"
-        [(ngModel)]="pets.preco" #precoModel="ngModel" required min="1" max="10000" /><br />
-    <div *ngIf="precoModel.invalid && precoModel.touched" style="color: red;">*Obrigatório e não pode ser
-        maior que 10 mil</div>
-    <label for="input-comentario">Comentário:</label>
-    <textarea class="input-simples" id="input-comentario" name="input-comentario" placeholder="Adicione um comentário"
-        [(ngModel)]="pets.comentario">
-</textarea><br />
-    <button type="submit" class="input-submeter" [disabled]="form.invalid">Cadastrar</button>
-</form>
+    <form (ngSubmit)="submeter()" #form="ngForm">
+        <div>
+            <label for="input-nome">Nome:</label>
+            <input class="input-simples" id="input-nome" name="input-nome" placeholder="Digite o Nome" type="text"
+                [(ngModel)]="pets.nome" #nomeModel="ngModel" required />
+            <div *ngIf="nomeModel.touched && nomeModel.invalid" class="error-message">
+                <div *ngIf="nomeModel.errors?.['required']">*Campo obrigatório</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="input-idade">Idade:</label>
+            <input class="input-simples" id="input-idade" name="input-idade" placeholder="Digite a Idade" type="number"
+                [(ngModel)]="pets.idade" #idadeModel="ngModel" required min="0" max="12" step="1"
+                (keypress)="bloquearDecimal($event)" />
+            <div *ngIf="idadeModel.touched && idadeModel.invalid" class="error-message">
+                <div *ngIf="idadeModel.errors?.['required']">*Campo obrigatório</div>
+                <div *ngIf="idadeModel.errors?.['max']">*Idade não pode ser maior que 12</div>
+                <div *ngIf="idadeModel.errors?.['min']">*Idade não pode ser negativa</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="input-especie">Espécie:</label>
+            <select class="input-simples" id="input-especie" name="input-especie" [(ngModel)]="pets.especie" required
+                #especieModel="ngModel">
+                <option value="">Selecione</option>
+                <option value="Cachorro">Cachorro</option>
+                <option value="Gato">Gato</option>
+            </select>
+            <div *ngIf="(especieModel.touched || form.submitted) && especieModel.invalid" class="error-message">
+                <div *ngIf="especieModel.errors?.['required']">*Campo obrigatório</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="input-raca">Raça:</label>
+            <input class="input-simples" id="input-raca" name="input-raca" placeholder="Digite a Raça" type="text"
+                [(ngModel)]="pets.raca" #racaModel="ngModel" required />
+            <div *ngIf="racaModel.touched && racaModel.invalid" class="error-message">
+                <div *ngIf="racaModel.errors?.['required']">*Campo obrigatório</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="input-sexo">Sexo:</label>
+            <select class="input-simples" id="input-sexo" name="input-sexo" [(ngModel)]="pets.sexo" required
+                #sexoModel="ngModel">
+                <option value="">Selecione</option>
+                <option value="Macho">Macho</option>
+                <option value="Femea">Femea</option>
+            </select>
+            <div *ngIf="(sexoModel.touched || form.submitted) && sexoModel.invalid" class="error-message">
+                <div *ngIf="sexoModel.errors?.['required']">*Campo obrigatório</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="input-preco">Preço:</label>
+            <input class="input-simples" id="input-preco" name="input-preco" placeholder="Digite o Preço" type="number"
+                [(ngModel)]="pets.preco" #precoModel="ngModel" required min="1" max="10000" />
+            <div *ngIf="precoModel.touched && precoModel.invalid" class="error-message">
+                <div *ngIf="precoModel.errors?.['required']">*Campo obrigatório</div>
+                <div *ngIf="precoModel.errors?.['max']">*Preço não pode ser maior que 10.000</div>
+                <div *ngIf="precoModel.errors?.['min']">*Preço deve ser no mínimo 1</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="input-comentario">Comentário:</label>
+            <textarea class="input-simples" id="input-comentario" name="input-comentario"
+                placeholder="Adicione um comentário" [(ngModel)]="pets.comentario"></textarea>
+        </div>
+
+        <button type="submit" class="input-submeter" [disabled]="!temCamposValidos()">Cadastrar</button>
+    </form>
 </div>

@@ -1,51 +1,143 @@
+.imagem {
+  background-image: url("/assets/ImagemFundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 0;
+}
+
 .content-container {
-    margin: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-image: url('/assets/ImagemFundo.png');
-    min-height: 100vh;
+  background-color: rgba(44, 62, 80, 0.95);
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  color: #ecf0f1;
+  width: 90%;
+  max-width: 1100px;
+  font-family: Arial, sans-serif;
 }
+
+.filtro {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.input-filtro {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #fff;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input-filtro::placeholder {
+  font-size: 16px;
+  color: #888;
+}
+
+.input-filtro:focus {
+  border-color: #00bcd4;
+  background-color: #f0fafd;
+  outline: none;
+}
+
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 thead {
-    background-color: #2c3e50 ;
-    color: white;
+  background-color: #1a252f;
+  color: #ecf0f1;
 }
+
 th {
-    padding: 6px;
-    text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ecf0f1;
+  text-align: left;
+  padding: 14px 16px;
 }
+
+th:last-child {
+  text-align: center;
+}
+
+td:last-child {
+  text-align: center;
+}
+
+tbody tr {
+  background-color: #fcfcfc;
+}
+
+th,
 td {
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align: left;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid #ccc;
 }
+
+td {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1e1e1e;
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+tbody tr:hover {
+  background-color: #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
 button {
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 10px 16px;
+  margin: 2px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: white;
 }
-table tbody tr:hover {
-    background-color: #f1f1f1;
+
+.btn-consultar {
+  background-color: #00acc1;
 }
-button{
-    background-color: #2c3e50;
-    color: white;
+
+.btn-consultar:hover {
+  background-color: #007c91;
 }
-button:hover {
-  background-color: #0056b3;
+
+.btn-excluir {
+  background-color: #e74c3c;
 }
-tr.conteudo{
-    background-color: #f1f1f1;
-}
-.filtro{
-    background-color: white;
-    border: 1px black;
-    background-color: #2c3e50;
-    color: white;
-    
+
+.btn-excluir:hover {
+  background-color: #c0392b;
 }

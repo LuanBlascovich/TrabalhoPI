@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router'; // ✅ Importa ActivatedRoute
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PetsService } from '../../core/services/pets.service';
@@ -19,7 +19,7 @@ export class ConsultarComponent implements OnInit {
 
   constructor(
     private petsService: PetsService,
-    private route: ActivatedRoute, // ✅ Pega o ID da URL
+    private route: ActivatedRoute,
     private router: Router
   ) {}
 
@@ -53,6 +53,23 @@ export class ConsultarComponent implements OnInit {
   editarPet(): void {
     if (this.petsEncontrado?.id) {
       this.router.navigate(['/editar', this.petsEncontrado.id]);
+    }
+  }
+
+  excluirPet(): void {
+    if (
+      this.petsEncontrado?.id &&
+      confirm('Tem certeza que deseja excluir esse pet?')
+    ) {
+      this.petsService.excluir(this.petsEncontrado.id).subscribe(
+        () => {
+          alert('Pet excluído com sucesso!');
+          this.router.navigate(['/listagem']);
+        },
+        () => {
+          alert('Erro ao excluir pet.');
+        }
+      );
     }
   }
 }

@@ -28,13 +28,17 @@ export class ListagemComponent implements OnInit {
 
     const termo = this.filtro.toLowerCase();
 
-    return this.listaPets.filter(
-      (pet) =>
+    return this.listaPets.filter((pet) => {
+      const idStr = (pet.id ?? '').toString().toLowerCase();
+
+      return (
+        idStr.includes(termo) ||
         pet.nome.toLowerCase().includes(termo) ||
         pet.raca.toLowerCase().includes(termo) ||
         pet.sexo.toLowerCase().includes(termo) ||
         pet.especie.toLowerCase().includes(termo)
-    );
+      );
+    });
   }
 
   carregarPets(): void {
@@ -44,7 +48,7 @@ export class ListagemComponent implements OnInit {
   }
 
   excluir(id: string): void {
-    if (id) {
+    if (id && confirm('Tem certeza que deseja excluir esse pet?')) {
       this.service.excluir(id).subscribe(() => {
         this.listaPets = this.listaPets.filter((pets) => pets.id !== id);
       });

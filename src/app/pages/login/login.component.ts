@@ -9,12 +9,13 @@ import { AuthService } from '../../core/services/auth.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   administrador: string = '';
   senha: string = '';
   erro: string = '';
+  senhaVisivel: boolean = false;
 
   constructor(private auth: AuthService, private router: Router) {}
 
@@ -46,5 +47,9 @@ export class LoginComponent implements OnInit {
           'Erro ao tentar autenticar, por favor tente novamente mais tarde.';
       },
     });
+  }
+
+  toggleSenhaVisibilidade() {
+    this.senhaVisivel = !this.senhaVisivel;
   }
 }

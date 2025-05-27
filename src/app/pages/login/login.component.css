@@ -1,24 +1,108 @@
+.imagem-login {
+  background-image: url("/assets/ImagemFundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-container {
-  max-width: 200px;
-  width: 100vh;
-  margin: 10px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(44, 62, 80, 0.95);
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  color: #ecf0f1;
+  width: 100%;
+  max-width: 400px;
   font-family: Arial, sans-serif;
   text-align: left;
 }
+
+.login-title {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #2c3e50;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #00bcd4;
+  background-color: #f0fafd;
+  outline: none;
+}
+
 button {
-    border-radius: 4px;
-    cursor: pointer;
+  width: 100%;
+  background-color: #00acc1;
+  color: #ffffff;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button{
-    background-color: #2c3e50;
-    color: white;
-}
 button:hover {
-  background-color: #0056b3;
+  background-color: #007c91;
 }
 
+.password-container {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.password-container input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #2c3e50;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.password-container input:focus {
+  border-color: #00bcd4;
+  background-color: #f0fafd;
+  outline: none;
+}
+
+.password-container i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.eye-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.erro {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #ff6b6b;
+  text-align: center;
+}

@@ -14,6 +14,10 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent {
   constructor(private auth: AuthService, private router: Router) {}
 
+  isNaPaginaDeLogin(): boolean {
+    return this.router.url === '/login';
+  }
+
   isLogado(): boolean {
     return this.auth.isLogado();
   }

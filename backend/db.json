@@ -2,13 +2,13 @@
   "pets": [
     {
       "id": "1",
-      "nome": "Luna",
-      "idade": 2,
-      "especie": "Gato",
-      "raca": "Azul Russo",
-      "sexo": "Femea",
-      "preco": 200,
-      "comentario": "Brincalhona"
+      "nome": "Teste",
+      "idade": 0,
+      "especie": "Cachorro",
+      "raca": "Srd",
+      "sexo": "Macho",
+      "preco": 1,
+      "comentario": "Teste"
     }
   ],
   "credenciais": [
